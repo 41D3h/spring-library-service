@@ -4,7 +4,7 @@ import com.example.lib.domain.Author;
 import com.example.lib.domain.Book;
 import com.example.lib.repos.AuthorRepository;
 import com.example.lib.repos.BookRepository;
-import jakarta.validation.Valid;
+import javax.validation.Valid;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
@@ -75,9 +75,9 @@ public class BookController {
 
         try {
             bookRepo.save(book);
-            message = "Книга \"%s\" добавлена успешно!".formatted(book.getName());
+            message = "Книга " + book.getName() + " добавлена успешно!";
         } catch (Exception e) {
-            message = "Не удалось добавить книгу \"%s\"".formatted(book.getName());
+            message = "Не удалось добавить книгу " + book.getName();
         }
 
         model.put("message", message);

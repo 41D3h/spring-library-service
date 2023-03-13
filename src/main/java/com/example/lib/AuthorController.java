@@ -2,7 +2,7 @@ package com.example.lib;
 
 import com.example.lib.domain.Author;
 import com.example.lib.repos.AuthorRepository;
-import jakarta.validation.Valid;
+import javax.validation.Valid;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
@@ -72,9 +72,9 @@ public class AuthorController {
 
         try {
             authorRepo.save(author);
-            message = "Author \"%s\" added successfully!".formatted(authorsFullName);
+            message = "Author " + authorsFullName + " added successfully!";
         } catch (Exception e) {
-            message = "Can't add author \"%s\"".formatted(authorsFullName);
+            message = "Can't add author " + authorsFullName;
         }
 
         model.put("message", message);
